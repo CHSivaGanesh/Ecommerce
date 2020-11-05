@@ -1,0 +1,50 @@
+<div>
+    <mat-toolbar color="primary" class="navbar">
+          <span>Welcome to our Shopping site</span>
+          <button mat-raised-button  color="primary"   routerLink='/cart'>cart</button> 
+    </mat-toolbar>
+    <mat-tab-group mat-align-tabs="START"> 
+<mat-tab label="items"> 
+    <body style="background-color: gray;">
+    <mat-grid-list cols="3" rowHeight="0.5:0.5">
+    <div  *ngFor="let i of items">
+        <mat-grid-tile>
+            <mat-card > 
+                <mat-card-title>{{i.title}}</mat-card-title>
+                <mat-card-header>
+                    <img mat-card-lg-image src={{i.url}} align="middle" height="200px"  width="50px">
+            </mat-card-header>	
+            <mat-card-footer>
+                <mat-card-content align="middle" >PRICE={{i.price}}/-</mat-card-content>
+                <mat-card-actions align="middle">
+                    <button mat-raised-button color="primary" (click)="productid(i)">Add to cart</button><br>
+            <form>
+                <div class="formGroup">
+                            <mat-label>Quantity</mat-label><br>
+                            <input type=number min="0" name="quan" [(ngModel)]="temp">
+                            </div>
+                            </form>
+        
+                        </mat-card-actions>
+                    </mat-card-footer>
+            </mat-card>
+            </mat-grid-tile>
+          </div>
+          </mat-grid-list>
+            <mat-divider></mat-divider>
+        </body>   
+    </mat-tab>
+    <!-- <mat-tab label="cart">  -->
+       
+
+ <!-- </mat-tab>  -->
+</mat-tab-group>
+<div>
+    <app-cart [Totalsum]="sum" [Products]="products"></app-cart>   
+       
+
+</div>
+
+  
+              
+    
